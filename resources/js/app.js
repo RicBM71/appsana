@@ -4,10 +4,12 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import 'vuetify/dist/vuetify.min.css'
+// import 'vuetify/dist/vuetify.min.css'
 
-import Vuetify from 'vuetify';
-Vue.use(Vuetify);
+// import Vuetify from 'vuetify';
+// Vue.use(Vuetify);
+
+import vuetify from '@/plugins/vuetify'
 
 import router from './router';
 import store from './store/index';
@@ -114,6 +116,7 @@ Vue.component('reset-login', require('./components/auth/ResetLogin.vue').default
 
 const app = new Vue({
     el: '#app',
+    vuetify,
     router,
     store
 });
