@@ -309,12 +309,12 @@
                     <v-row>
                       <v-col cols="10">
                         <h4 class="subtitle-2 font-weight-bold mb-3">
-                          <v-icon class="purple--text">mdi-phone-classic</v-icon> 91 739 87 08
+                          <v-icon class="purple--text">mdi-phone-classic</v-icon> 917398708
                         </h4>
                       </v-col>
                       <v-col cols="10">
                         <h4 class="subtitle-2 font-weight-bold mb-3">
-                          <v-icon class="green--text">mdi-whatsapp</v-icon> WhatsApp 634 234 815
+                          <v-icon class="green--text">mdi-whatsapp</v-icon> WhatsApp 634234815
                         </h4>
                       </v-col>
                       <v-col cols="10">
@@ -342,7 +342,7 @@
                   <br/>
               </v-card>
             </v-col>
-            <v-col cols="8" lg="3" sm="8">
+            <v-col cols="12" lg="3" sm="8">
                 <v-card flat>
                     <h4 class="title font-weight-bold mb-3">Acreditados</h4>
                   <div class="subtitle-2">Profesionales Colegiados</div>
