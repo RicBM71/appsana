@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="author" content="Sanaval Tecnología">
-        <meta name="description" content="Centro de fisioterapia en Madrid, Barrio del Pilar, especializados en deportiva y traumatología">
+        <meta name="description" content="Centro de fisioterapia en Madrid, Barrio del Pilar, especializados en deportiva y traumatología, vendajes">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Centro de fisioterapia {{ config('app.name') }} </title>
