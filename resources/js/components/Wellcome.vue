@@ -86,7 +86,7 @@
         <div class="py-12"></div>
 
         <v-container class="text-center">
-          <h2 class="display-2 font-weight-bold red--text darken-4 mb-3">AVISO IMPORTANTE</h2>
+          <h2 class="display-2 font-weight-bold red--success darken-4 mb-3">REANUDAMOS LA ACTIVIDAD EL 11 DE MAYO</h2>
 
           <v-responsive
             class="mx-auto mb-8"
@@ -101,15 +101,25 @@
             class="mx-auto title font-weight-light mb-8 text-justify"
             max-width="920"
           >
-            <p>El Centro de fisioterapia Sanaval, en el marco de las medidas de prevención y contención necesarias para la vigilancia y control en materia de salud pública de cara a la situación y evolución del coronavirus (COVID-19), hemos decidido suspender la actividad en nuestro centro.</p>
+            <p>El Centro de fisioterapia Sanaval, en el marco de las medidas de prevención y contención necesarias para la vigilancia y control en materia de salud pública de cara a la situación y evolución del coronavirus (COVID-19), decidimos suspender la actividad en nuestro centro el 13 de marzo.</p>
+            <p>Actualmente y gracias a la colaboración de todos se está doblegando el pico de esta pandemia y por tanto el <span class="font-weight-bold">próximo día 11 de mayo reanudamos nuestra actividad.</span></p>
             <br/>
-            <p>Con el fin de dar repuesta a cualquier duda podéis contactar con nosotros en el teléfono <span class="font-weight-bold">91 739 87 08</span>, por WhatsApp <span class="font-weight-bold">634 234 815</span>, o por email <span class="font-weight-bold">info@sanaval.com</span></p>
-            <br />
+            <p>Puedes contactar con nosotros en el teléfono <span class="font-weight-bold">91 739 87 08</span>, por WhatsApp <span class="font-weight-bold">634 234 815</span>, o por email <span class="font-weight-bold">info@sanaval.com</span> para solicitar CITA o para solicitarnos cualquier otra información o duda que te surja.</p>
             <p>Te recordamos que es muy importante:</p>
-                <p><span class="font-weight-bold">#LavarseLasManos</span> con frecuencia.</p>
-                <p><span class="font-weight-bold">#QuedarseEnCasa</span> y reducir el contacto social.</p>
-                <p><span class="font-weight-bold">#YoMeMuevoEnCasa</span>, mantener la actividad física.</p>
-            <p>Lamentamos las molestias ocasionadas y gracias por confiar en nosotros.</p>
+                <p><span class="font-weight-bold">#LavarseLasManos</span> con frecuencia, reducir el contacto social y mantener la distancia de seguridad.</p>
+
+            <v-carousel
+                cycle
+                height="400"
+            >
+                <v-carousel-item
+                    v-for="(item,i) in items"
+                    :key="i"
+                    :src="item.src"
+                    reverse-transition="fade-transition"
+                    transition="fade-transition"
+                ></v-carousel-item>
+            </v-carousel>
           </v-responsive>
 
           <v-avatar
@@ -347,7 +357,7 @@
                     <h4 class="title font-weight-bold mb-3">Acreditados</h4>
                   <div class="subtitle-2">Profesionales Colegiados</div>
                   <div class="subtitle-2">Autorizado por la Consejería de Sanidad de la CCMM</div>
-                  <div class="subtitle-2">Centro Nº 3303</div>
+                  <div class="subtitle-2">Centro Nº CS3303</div>
                   <br/>
                   <v-row>
                   <v-col cols="6" lg="3">
@@ -611,6 +621,20 @@ import {mapGetters} from 'vuex';
             alert: true,
             legal: false,
             empresa: {},
+            items: [
+                {
+                    src: 'assets/diap1.jpg',
+                },
+                {
+                    src: 'assets/diap2.jpg',
+                },
+                {
+                    src: 'assets/diap4.jpg',
+                },
+                {
+                    src: 'assets/diap3.jpg',
+                },
+            ],
             articles: [
                 {
                     src: 'assets/gallery-05-370x240.jpg',
