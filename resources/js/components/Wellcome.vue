@@ -108,9 +108,9 @@
             <p>Te recordamos que es muy importante:</p>
             <p><span class="font-weight-bold">#LavarseLasManos</span> con frecuencia, reducir el contacto social y mantener la distancia de seguridad.</p>
 
-            <v-carousel
+            <!-- <v-carousel
                 cycle
-                height="400"
+                height="200"
             >
                 <v-carousel-item
                     v-for="(item,i) in items"
@@ -119,7 +119,40 @@
                     reverse-transition="fade-transition"
                     transition="fade-transition"
                 ></v-carousel-item>
-            </v-carousel>
+            </v-carousel> -->
+
+            <v-row>
+                <v-col
+                v-for="({ src, text, title }, i) in diapositivas"
+                :key="i"
+                cols="12"
+                md="4"
+                >
+                 <v-card
+                class="py-12 px-4"
+                text
+              >
+                <!-- <v-theme-provider dark> -->
+                <v-img
+                    :src="src"
+                    class="mb-4"
+                    max-width="100%"
+                ></v-img>
+                <div
+                    class="title font-weight-light mb-5 text-justify"
+                    v-text="text"
+                ></div>
+                 </v-card>
+
+                <!-- <v-btn
+                    class="ml-n4 font-weight-black"
+                    text
+                >
+                    Continue Reading
+                </v-btn> -->
+                </v-col>
+          </v-row>
+
           </v-responsive>
 
           <v-avatar
@@ -626,7 +659,7 @@ import {mapGetters} from 'vuex';
                     src: 'assets/diap3.jpg',
                 },
                 {
-                    src: 'assets/diap1.jpg',
+                    src: 'assets/diap1b.jpg',
                 },
                 {
                     src: 'assets/diap2.jpg',
@@ -641,6 +674,32 @@ import {mapGetters} from 'vuex';
                     src: 'assets/diap6.jpg',
                 },
             ],
+            diapositivas: [
+                {
+                    src: 'assets/diap1c.jpg',
+                    text: "Extremar al máximo la higiene de manos con agua y jabón o gel hidroalcólico. Te proporcionaremos gel hidroalcólico a la entrada.",
+                },
+                {
+                    src: 'assets/diap2c.jpg',
+                    text: "Es importante acudir al centro con mascarilla. Disponemos de mascarillas quirúrgicas para nuestros pacientes.",
+                },
+                {
+                    src: 'assets/diap3c.jpg',
+                    text: "Abstenerse de acudir al centro si presentas fiebre, tos... contacta con los servicios de atención primaria.",
+                },
+                {
+                    src: 'assets/diap4c.jpg',
+                    text: "Hemos reforzado los procedimientos de higiene y desinfección como medida de prevención.",
+                },
+                {
+                    src: 'assets/diap5c.jpg',
+                    text: "Todo nuestro personal dispone de equipos EPI's para garantizar tu seguridad y la suya propia.",
+                },
+                {
+                    src: 'assets/diap6c.jpg',
+                    text: "No están permitidas las aglomeraciones. Solo se permite un acompañante en caso de necesidad.",
+                },
+             ],
             articles: [
                 {
                     src: 'assets/gallery-05-370x240.jpg',
@@ -674,13 +733,13 @@ import {mapGetters} from 'vuex';
                     title: 'Nuestro equipo',
                     text: 'Nuestro centro se compone de un equipo de fisioterapeutas altamente cualificados y están dispuestos a escucharte y dispensar el tratamiento más adecuado a tu patología. No hay soluciones milagrosas, la fisioterapia requiere de esfuerzo y compromiso por parte del fisioterapueta pero es fundamental la colaboración del paciente. Nosotros estamos dispuestos.',
                 },
-                ],
-                stats: [
+            ],
+            stats: [
                 ['+19 Años', 'Actividad'],
                 ['+7000', 'Pacientes tratados'],
                 ['1º', 'Tú eres lo primero'],
                 ['+65', 'Descuentos a mayores'],
-                ],
+            ],
 
         }),
         beforeMount(){
