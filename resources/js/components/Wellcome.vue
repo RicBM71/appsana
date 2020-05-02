@@ -41,11 +41,11 @@
               <v-container fill-height>
                 <v-row
                   align="center"
-                  class="purple--text mx-auto"
+                  class="teal--text accent-4 mx-auto"
                   justify="center"
                 >
                   <v-col
-                    class="purple--text text-center"
+                    class="teal--text accent-4 text-center"
                     cols="12"
                     tag="h1"
                   >
@@ -68,7 +68,7 @@
                   </v-col>
 
                   <v-btn
-                    class="align-self-end purple--text"
+                    class="align-self-end teal--text accent-4"
                     fab
                     outlined
                     @click="$vuetify.goTo('#about-me')"
