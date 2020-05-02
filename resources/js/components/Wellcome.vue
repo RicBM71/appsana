@@ -346,8 +346,10 @@
           <v-row>
             <v-col cols="12" lg="4" md="6" sm="12">
                 <v-card flat>
-                    <h4 class="title font-weight-bold mb-3">Horario</h4>
-                    <p>Lunes a Viernes de 10 a 14h y de 16:30 a 20:00</p>
+                    <h4 class="title font-weight-bold mb-3">{{ this.parametros.titulo }}</h4>
+                    <p>{{ this.parametros.linea1 }}</p>
+                    <p>{{ this.parametros.linea2 }}</p>
+                    <p class="caption font-italic font-weight-light red--text">{{ this.parametros.linea3 }}</p>
                     <h4 class="subtitle-2 font-weight-bold mb-3">Solicita Cita Previa: </h4>
                     <v-row>
                       <v-col cols="10">
@@ -368,7 +370,7 @@
                     </v-row>
                     <v-row>
                         <v-col cols="12">
-                            <p class="caption font-italic font-weight-light red--text">* Suspendido temporalmente el servicio de citas online</p>
+                            <p class="caption font-italic font-weight-light gray--text">* Suspendido temporalmente el servicio de citas online</p>
                         </v-col>
                     </v-row>
                 </v-card>
@@ -654,6 +656,7 @@ import {mapGetters} from 'vuex';
             alert: true,
             legal: false,
             empresa: {},
+            parametros:{},
             items: [
                 {
                     src: 'assets/diap3.jpg',
@@ -693,7 +696,7 @@ import {mapGetters} from 'vuex';
                 },
                 {
                     src: 'assets/diap5c.jpg',
-                    text: "Todo nuestro personal dispone de equipos EPI's para garantizar tu seguridad y la suya propia.",
+                    text: "Todo nuestro personal dispone del equipamiento necesario para garantizar tu seguridad y la suya propia.",
                 },
                 {
                     src: 'assets/diap6c.jpg',
@@ -743,13 +746,17 @@ import {mapGetters} from 'vuex';
 
         }),
         beforeMount(){
-            axios.get('api/emp')
+            axios.get('api/param')
                 .then(res => {
-                    this.empresa = res.data;
+                    this.parametros = res.data.parametros;
+
                 })
-                .catch(err => {
-                    console.log(err);
-            })
+                 .catch(err => {
+                    this.$toast.error("Fallo en reload empresa...");
+                })
+                 .finally(()=> {
+                        this.show_loading = false;
+                });
         },
         methods:{
             showLegal(){

@@ -15,15 +15,10 @@ class CreateParametrosTable extends Migration
     {
         Schema::create('parametros', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->decimal('lim_efe', 10, 2)->default(2500);
-            $table->decimal('lim_efe_nores', 10, 2)->default(15000);
-            $table->string('pie_rebu1')->nullable();
-            $table->decimal('retencion', 6,2)->default(0);
-            $table->boolean('online')->default(false);
-            $table->boolean('aislar_empresas')->default(false);
-            $table->string('img1',100)->nullable();
-            $table->string('img2',100)->nullable();
-            $table->string('carpeta_docs')->default('disco1');
+            $table->string('titulo')->nullable();
+            $table->string('linea1')->nullable();
+            $table->string('linea2')->nullable();
+            $table->string('linea3')->nullable();
             $table->string('username',50)->nullable();
             $table->timestamps();
         });
