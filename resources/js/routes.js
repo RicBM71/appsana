@@ -2,6 +2,7 @@ import Wellcome from './components/Wellcome.vue';
 import Legal from './components/Legal.vue';
 import Home from './components/Home.vue';
 import Main from './components/Main.vue';
+import Inicio from './components/Inicio.vue';
 import st404 from './components/shared/404.vue';
 
 import UserIndex from './components/admin/users/UserIndex.vue';
@@ -42,8 +43,15 @@ import EditPassword from './components/profile/edit-password/EditPassword.vue';
 export default [
 	{
 		path: '/',
-		name: 'index',
-		component: Wellcome
+		name: '',
+        component: Wellcome,
+        children: [
+            {
+				path: '',
+				name: 'index',
+                component: Inicio,
+            },
+        ]
     },
     {
 		path: '/legal',
