@@ -78,19 +78,6 @@
             <p>Te recordamos que es muy importante:</p>
             <p><span class="font-weight-bold">#LavarseLasManos</span> con frecuencia, reducir el contacto social y mantener la distancia de seguridad.</p>
 
-            <!-- <v-carousel
-                cycle
-                height="200"
-            >
-                <v-carousel-item
-                    v-for="(item,i) in items"
-                    :key="i"
-                    :src="item.src"
-                    reverse-transition="fade-transition"
-                    transition="fade-transition"
-                ></v-carousel-item>
-            </v-carousel> -->
-
             <v-row>
                 <v-col
                 v-for="({ src, text, title }, i) in diapositivas"
@@ -105,6 +92,7 @@
                 <!-- <v-theme-provider dark> -->
                 <v-img
                     :src="src"
+                    :alt="title"
                     class="mb-4"
                     max-width="100%"
                 ></v-img>
@@ -129,7 +117,7 @@
             class="elevation-12 mb-12"
             size="128"
           >
-            <v-img src="assets/sara-110x110.jpg"></v-img>
+            <v-img alt="avatar" src="assets/sara-110x110.jpg"></v-img>
           </v-avatar>
             <p>Sara Veiga Sánchez - Col. 1237</p>
           <div></div>
@@ -613,48 +601,35 @@ import {mapGetters} from 'vuex';
             legal: false,
             empresa: {},
             parametros:{},
-            items: [
-                {
-                    src: 'assets/diap3.jpg',
-                },
-                {
-                    src: 'assets/diap1b.jpg',
-                },
-                {
-                    src: 'assets/diap2.jpg',
-                },
-                {
-                    src: 'assets/diap5.jpg',
-                },
-                {
-                    src: 'assets/diap4.jpg',
-                },
-                {
-                    src: 'assets/diap6.jpg',
-                },
-            ],
+
             diapositivas: [
                 {
+                    title: 'gel',
                     src: 'assets/diap1c.jpg',
                     text: "Extremar al máximo la higiene de manos con agua y jabón o gel hidroalcólico. Te proporcionaremos gel hidroalcólico a la entrada.",
                 },
                 {
+                    title: 'mascarilla',
                     src: 'assets/diap2c.jpg',
                     text: "Es importante acudir al centro con mascarilla. Disponemos de mascarillas quirúrgicas para nuestros pacientes.",
                 },
                 {
+                    title: 'fiebre',
                     src: 'assets/diap3c.jpg',
                     text: "Abstenerse de acudir al centro si presentas fiebre, tos... contacta con los servicios de atención primaria.",
                 },
                 {
+                    title: 'higiene',
                     src: 'assets/diap4c.jpg',
                     text: "Hemos reforzado los procedimientos de higiene y desinfección como medida de prevención.",
                 },
                 {
+                    title: 'epis',
                     src: 'assets/diap5c.jpg',
                     text: "Todo nuestro personal dispone del equipamiento necesario para garantizar tu seguridad y la suya propia.",
                 },
                 {
+                    title: 'personas',
                     src: 'assets/diap6c.jpg',
                     text: "No están permitidas las aglomeraciones. Solo se permite un acompañante en caso de necesidad.",
                 },
