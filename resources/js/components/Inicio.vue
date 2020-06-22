@@ -73,11 +73,10 @@
           >
             <p>Desde el Centro de fisioterapia Sanaval, quereos agradecer a todos nuestros pacientes la confianza depositada en nosotros, más si cabe debido a la situación que recientemente hemos sufrido todos. A todos, ¡Gracias!</p>
             <p>Queremos desde aquí recordar y honrar a aquellos que nos han dejado y mostrar nuestro apoyo y respeto a sus familiares. ¡No estáis solos!</p>
-            <p>Con el compromiso y el esfuerzo de todos <span class="font-weight-bold">vamos a vencer al COVID.</span></p>
-            <p>Ya puedes contactar con nosotros en el teléfono <span class="font-weight-bold">91 739 87 08</span>, por WhatsApp <span class="font-weight-bold">634 234 815</span>, o por email <span class="font-weight-bold">info@sanaval.com</span> para solicitar <span class="font-weight-bold">CITA PREVIA</span>. Con el fin de mantener las medidas
-            de organización y distanciamiento social NO acudir al centro sin cita previa.</p>
+            <p>Con el esfuerzo de todos <span class="font-weight-bold">vamos a vencer al COVID.</span> Seguimos comprometidos con vosotros para ofreceros un tratamiento de calidad adaptado a tu patología. Nuestra recompensa es tu recuperación. Cuéntanos tu problema y te procuraremos el tratamiento más adecuando, estamos para escucharte y ayudarte.</p>
+            <p>Puedes contactar con nosotros en el teléfono <span class="font-weight-bold">91 739 87 08</span>, por WhatsApp <span class="font-weight-bold">634 234 815</span>, o por email <span class="font-weight-bold">info@sanaval.com</span> para solicitar <span class="font-weight-bold">CITA PREVIA</span>.</p>
             <p>Te recordamos que es muy importante:</p>
-            <p><span class="font-weight-bold">#LavarseLasManos</span> con frecuencia, reducir el contacto social y mantener la distancia de seguridad.</p>
+            <p><span class="font-weight-bold">#LavarseLasManos</span> con frecuencia, reducir el contacto social y mantener la distancia de seguridad. Sigue las instrucciones de nuestro personal y no dudes en preguntar si tienes cualquier duda al respecto.</p>
 
             <v-row>
                 <v-col
@@ -612,7 +611,7 @@ import {mapGetters} from 'vuex';
                 {
                     title: 'mascarilla',
                     src: 'assets/diap2c.jpg',
-                    text: "Es importante acudir al centro con mascarilla. Disponemos de mascarillas quirúrgicas para nuestros pacientes.",
+                    text: "Es obligatorio acudir al centro con mascarilla, sanitaria o quirúrgica y en la medida de lo posible evitar mascarillas con válvula.",
                 },
                 {
                     title: 'fiebre',
