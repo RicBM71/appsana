@@ -5,14 +5,14 @@
             <v-card-text>
                 <v-text-field
                     prepend-icon="person"
-                    v-model="username"
-                    name="username"
+                    v-model="email"
+                    name="email"
                     label="Usuario"
-                    :error-messages="errors.collect('username')"
-                    data-vv-name="username"
+                    :error-messages="errors.collect('email')"
+                    data-vv-name="email"
                     data-vv-as="usuario"
                     :value="old_usr"
-                    v-validate="'required'"
+                    v-validate="'required|email'"
                     :disabled="loading"
                 >
                 </v-text-field>
@@ -42,8 +42,8 @@
                 <v-btn
                     :disabled="loading"
                     @click="submit"
-                    round
-                    flat
+                    rounded
+                    text
                     color="primary">
                         <span v-show="loading">Espere...</span>
                         <span v-show="!loading">Login</span>
@@ -73,9 +73,9 @@ export default {
     },
     data() {
         return {
-            username:this.old_usr,
-            //username:"ricardo.bm",
-            password:"",
+            //email:this.old_usr,
+            email:'rbartolome@sanaval.com',
+            password:"123",
             loading: false
         }
     },

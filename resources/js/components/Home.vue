@@ -1,114 +1,77 @@
 <template>
-    <v-app>
-          <loading :show_loading="show_loading"></loading>
-          <div class="text-xs-center">
-            <v-dialog
-            v-model="myEmpresa"
-            width="500"
-            >
-            <v-card>
-                <v-card-title
-                class="headline grey lighten-2"
-                primary-title
-                >
-                Seleccionar empresa
-                </v-card-title>
+    <v-app id="inspire" v-if="isLoggedIn">
+        <loading :show_loading="show_loading"></loading>
+        <v-navigation-drawer
+        v-model="drawer"
+        app
+        >
+        <!-- <v-list dense>
+            <v-list-item link>
+            <v-list-item-action>
+                <v-icon>mdi-home</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+                <v-list-item-title>Home</v-list-item-title>
+            </v-list-item-content>
+            </v-list-item>
+            <v-list-item link>
+            <v-list-item-action>
+                <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+                <v-list-item-title>Contact</v-list-item-title>
+            </v-list-item-content>
+            </v-list-item>
+        </v-list> -->
+        </v-navigation-drawer>
 
-                <v-card-text>
-                    <v-flex sm2 d-flex></v-flex>
-                    <v-flex sm8 d-flex>
-                        <v-select
-                            v-on:change="setEmpresa"
-                            v-model="empresa_id"
-                            :items="empresas"
-                            label="Empresa"
-                        ></v-select>
-                    </v-flex>
-                </v-card-text>
-
-                <v-divider></v-divider>
-
-                <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn
-                    color="primary"
-                    round
-                    flat
-                    @click="myEmpresa=false"
-                >
-                    Cerrar
-                </v-btn>
-                </v-card-actions>
-            </v-card>
-            </v-dialog>
-        </div>
-        <div v-if="isLoggedIn">
-            <v-navigation-drawer
-                v-if="isLoggedIn"
-                v-model="drawer"
-                :clipped="$vuetify.breakpoint.lgAndUp"
-                fixed
-                app
-                >
-                <v-list dense>
-                    <template v-for="item in mn_items">
-                    <v-layout
-                        v-if="item.heading"
-                        :key="item.heading"
-                        row
-                        align-center
-                    >
-                        <v-flex xs6>
-                        <v-subheader v-if="item.heading">
-                            {{ item.heading }}head
-                        </v-subheader>
-                        </v-flex>
-                        <v-flex xs6 class="text-xs-center">
-                        <a href="#!" class="body-2 black--text">EDIT</a>
-                        </v-flex>
-                    </v-layout>
-                    <v-list-group
-                        v-else-if="item.children"
-                        :key="item.text"
-                        v-model="item.model"
-                        :prepend-icon="item.model ? item.icon : item['icon-alt']"
-                        append-icon=""
-                    >
-                        <v-list-tile slot="activator">
-                        <v-list-tile-content>
-                            <v-list-tile-title>
-                            {{ item.text }}
-                            </v-list-tile-title>
-                        </v-list-tile-content>
-                        </v-list-tile>
-                        <v-list-tile
-                        v-for="child in item.children"
-                        :key="child.name"
-                        :to="{ name: child.name}"
-                        >
-                        <v-list-tile-action v-if="child.icon">
-                            <v-icon>{{ child.icon }}</v-icon>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title>
-                            {{ child.text }}
-                            </v-list-tile-title>
-                        </v-list-tile-content>
-                        </v-list-tile>
-                    </v-list-group>
-                    <v-list-tile v-else :key="item.text" @click="abrir(item.name)">
-                        <v-list-tile-action>
-                        <v-icon>{{ item.icon }}</v-icon>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                        <v-list-tile-title>
-                            {{ item.text }}
-                        </v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
+        <v-app-bar
+        app
+        color="blue darken-3"
+        dark
+        >
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-toolbar-title>Sanaval</v-toolbar-title>
+        <v-spacer></v-spacer>
+                <v-tooltip bottom>
+                    <template v-slot:activator="{ on }">
+                        <v-btn v-on="on" icon v-show="jobs > 0">
+                            <v-icon color="red darken-4">notification_important</v-icon>
+                        </v-btn>
                     </template>
-                </v-list>
-            </v-navigation-drawer>
+                    <span>({{jobs}}) Mails pendientes de envio.</span>
+                </v-tooltip>
+
+
+                <v-btn icon v-on:click="home">
+                    <v-icon>home</v-icon>
+                </v-btn>
+                <v-btn icon v-on:click="passwd">
+                    <v-avatar v-if="user.avatar !='#'" size="32px">
+                        <img class="img-fluid" :src="user.avatar">
+                    </v-avatar>
+                    <v-icon v-else>settings</v-icon>
+                </v-btn>
+                <strong v-html="user.name"></strong>
+                <v-btn icon large  v-on:click="Logout">
+                    <v-avatar size="32px" tile>
+                        <v-icon>exit_to_app</v-icon>
+                    </v-avatar>
+                </v-btn>
+        </v-app-bar>
+
+        <v-content>
+        <v-container
+            fluid        >
+            <router-view :key="$route.fullPath"></router-view>
+        </v-container>
+        </v-content>
+    </v-app>
+    <!-- <v-app>
+        <loading :show_loading="show_loading"></loading>
+
+        <div v-if="isLoggedIn">
+
             <v-toolbar
                 v-if="menu"
                 :clipped-left="$vuetify.breakpoint.lgAndUp"
@@ -131,9 +94,7 @@
                     <span>({{jobs}}) Mails pendientes de envio.</span>
                 </v-tooltip>
 
-                <v-btn icon v-on:click="empresa">
-                    <v-icon>work_outline</v-icon>
-                </v-btn>
+
                 <v-btn icon v-on:click="home">
                     <v-icon>home</v-icon>
                 </v-btn>
@@ -153,12 +114,12 @@
             <v-content>
 
 
-                    <router-view :key="$route.fullPath"></router-view>
+            <router-view :key="$route.fullPath"></router-view>
 
 
             </v-content>
         </div>
-</v-app>
+</v-app> -->
 </template>
 <script>
 import {mapActions} from "vuex";
@@ -248,11 +209,11 @@ export default {
             ]
         },
 
-        // mn_items: [
-        //     { icon: 'people', text: 'Clientes', name:'cliente.index' },
-        //     { icon: 'local_offer', text: 'Productos', name:'producto.index' },
+        mn_items: [
+            { icon: 'people', text: 'Clientes', name:'cliente.index' },
+            { icon: 'local_offer', text: 'Productos', name:'producto.index' },
 
-        // ],
+        ],
 
 
 
@@ -299,46 +260,14 @@ export default {
         axios.get('/dash')
                 .then(res => {
 
-                    this.setAuthUser(res.data.user);
+                    console.log(res);
+                   this.setAuthUser(res.data.user);
 
-                    this.mn_items.push(this.mn_etiquetas);
+                    this.mn_items.push(this.mn_procesos);
 
-
-
-                    this.empresa_id = this.user.empresa_id;
-
-                    if (this.isAdmin && this.isGestor)
-                        this.mn_items.push(this.mn_procesos);
-
-                    if (this.isRoot)
-                        this.mn_items.push(this.mn_root);
-
-                    this.empresas = res.data.user.empresas;
-                    var idx = this.empresas.map(x => x.value).indexOf(this.empresa_id);
-
-                    // this.empresaTxt = this.empresas[idx].text;
-                    //this.empresaTxt = this.user.empresa_nombre;
+                    this.mn_items.push(this.mn_root);
 
                     this.jobs = res.data.jobs;
-
-                    //this.productos_online = res.data.productos_online;
-
-                    // res.data.user.empresas.map((e) =>{
-                    //     if (e.id == this.empresa_id)
-                    //         this.empresaTxt = e.titulo;
-                    //     this.empresas.push({id: e.id, name: e.titulo});
-                    // })
-
-                    this.empresas.sort(function (a, b) {
-                    if (a.text > b.text) {
-                        return 1;
-                    }
-                    if (a.text < b.text) {
-                        return -1;
-                    }
-                    // a must be equal to b
-                    return 0;
-                    });
 
                     this.expired = res.data.expired;
                     if (this.expired){

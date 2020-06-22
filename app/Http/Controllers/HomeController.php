@@ -54,51 +54,19 @@ class HomeController extends Controller
             $permisos_user[]=$permiso->name;
         }
 
-        $empresas_usuario = collect();
-        foreach ($authUser->empresas as $empresa){
-            if ($empresa->flags[0] == false)
-                continue;
-
-            $empresa_id = $empresa->id;
-
-            $empresas_usuario->push($empresa->id);
-            $empresas[] = [
-                'value' => $empresa->id,
-                'text' => $empresa->titulo
-            ];
-        }
-
 
         $parametros = Parametro::find(1);
-
-        // empresa seleccionada
-        $e = DB::table('empresa_user')->select('empresa_id')
-                                    ->where('user_id', $authUser->id)
-                                    ->where('activa', true)
-                                    ->get()->first();
-        if ($e != null)
-            $empresa_id = $e->empresa_id;
-        else{
-            DB::table('empresa_user')->where('user_id', $authUser->id)
-                        ->where('empresa_id', $empresa_id)
-                        ->update(['activa' => true]);
-        }
-
-        $empresa = Empresa::findOrFail($empresa_id);
+        $empresa = Empresa::find(1);
 
         $user = [
             'id'            => $authUser->id,
+            'username'      => $authUser->paciente_id,
             'name'          => $authUser->name,
-            'username'      => $authUser->username,
             'avatar'        => $authUser->avatar,
-            'empresa_id'    => $empresa_id,
-            'empresa_nombre'=>$empresa->titulo,
             'roles'         => $role_user,
             'permisos'      => $permisos_user,
-            'empresas'      => $empresas,
-            'parametros'    =>$parametros,
+            'parametros'    => $parametros,
             'img_fondo'     => $empresa->img_fondo,
-            'aislar_empresas'  => $parametros->aislar_empresas
         ];
 
        // de momento no quito filtros, ya veremos.
@@ -107,12 +75,10 @@ class HomeController extends Controller
         $jobs  = DB::table('jobs')->count();
 
         session([
-            'empresa_id'       => $empresa_id,
-            'empresa'          => Empresa::find($empresa_id),
+            'empresa_id'       => 1,
+            'empresa'          => $empresa,
             'username'         => $authUser->username,
-            'empresas_usuario' => $empresas_usuario,
             'parametros'       => $parametros,
-            'aislar_empresas'  => $parametros->aislar_empresas
             ]);
 
         if (request()->wantsJson())

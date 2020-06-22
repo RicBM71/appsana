@@ -1,5 +1,6 @@
 <?php
 
+use App\Empresa;
 use App\Parametro;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
@@ -16,6 +17,7 @@ class GenericasSeeder extends Seeder
     {
 
         Parametro::truncate();
+        Empresa::truncate();
 
         $p = new Parametro;
         $p->titulo = "Horario Estado Alarma - FASE 0";
@@ -26,6 +28,11 @@ class GenericasSeeder extends Seeder
 
         $p->save();
 
+        $e = New Empresa;
+        $e->razon = "Sanaval";
+        $e->nombre = "Sanaval";
+        $e->titulo = "Sanaval";
+        $e->save();
 
 
     }

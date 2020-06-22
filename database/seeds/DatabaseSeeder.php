@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         // eliminar resticciones foreign-keys
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-     //   $this->call(UsersTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
         $this->call(GenericasSeeder::class);
      //   $this->call(BancosTableSeeder::class);
 

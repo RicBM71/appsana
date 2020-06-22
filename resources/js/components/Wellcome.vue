@@ -7,9 +7,6 @@
       height="100"
     >
 
-
-
-
         <v-toolbar-title class="font-weight-black headline teal--text accent-2">
             <v-card flat tile class="d-flex">
              <v-img
@@ -85,5 +82,10 @@ import {mapGetters} from 'vuex';
                         this.show_loading = false;
                 });
         },
+         methods:{
+            login(){
+                window.location = '/login';
+            },
+        }
 	}
 </script>

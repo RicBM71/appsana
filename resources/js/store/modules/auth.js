@@ -43,7 +43,6 @@ const mutations = {
         state.permisos = payload.user.permisos;
         state.parametros = payload.user.parametros;
         state.img_fondo = payload.user.img_fondo;
-        state.aislar = payload.user.aislar_empresas
 	},
 	[UNSET_USER](state, payload) {
         state.id = null;
@@ -56,7 +55,6 @@ const mutations = {
         state.permisos = [];
         state.parametros = {};
         state.img_fondo=null;
-        state.aislar=null
 	}
 };
 

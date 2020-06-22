@@ -56,7 +56,7 @@
         <div class="py-12"></div>
 
         <v-container class="text-center">
-          <h2 class="display-2 font-weight-bold cyan--text lighten-1 darken-4 mb-3">REANUDAMOS LA ACTIVIDAD EL 6 DE MAYO</h2>
+          <h2 class="display-2 font-weight-bold cyan--text lighten-1 darken-4 mb-3">PREPARADOS Y DISPUESTOS</h2>
 
           <v-responsive
             class="mx-auto mb-8"
@@ -71,8 +71,9 @@
             class="mx-auto title font-weight-light mb-8 text-justify"
             max-width="920"
           >
-            <p>El Centro de fisioterapia Sanaval, en el marco de las medidas de prevención y contención necesarias para la vigilancia y control en materia de salud pública de cara a la situación y evolución del coronavirus (COVID-19), decidimos suspender la actividad en nuestro centro el 13 de marzo.</p>
-            <p>Actualmente y gracias a la colaboración de todos se está doblegando el pico de esta pandemia y por tanto el <span class="font-weight-bold">próximo día 6 de mayo reanudamos nuestra actividad.</span></p>
+            <p>Desde el Centro de fisioterapia Sanaval, quereos agradecer a todos nuestros pacientes la confianza depositada en nosotros, más si cabe debido a la situación que recientemente hemos sufrido todos. A todos, ¡Gracias!</p>
+            <p>Queremos desde aquí recordar y honrar a aquellos que nos han dejado y mostrar nuestro apoyo y respeto a sus familiares. ¡No estáis solos!</p>
+            <p>Con el compromiso y el esfuerzo de todos <span class="font-weight-bold">vamos a vencer al COVID.</span></p>
             <p>Ya puedes contactar con nosotros en el teléfono <span class="font-weight-bold">91 739 87 08</span>, por WhatsApp <span class="font-weight-bold">634 234 815</span>, o por email <span class="font-weight-bold">info@sanaval.com</span> para solicitar <span class="font-weight-bold">CITA PREVIA</span>. Con el fin de mantener las medidas
             de organización y distanciamiento social NO acudir al centro sin cita previa.</p>
             <p>Te recordamos que es muy importante:</p>

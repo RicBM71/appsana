@@ -31,26 +31,13 @@ class UsersTableSeeder extends Seeder
         $gestRole = Role::create(['name'=>'Gestor']);
 
         Permission::create(['name'=>'addcom','nombre'=>'Crea Compras']);
-        Permission::create(['name'=>'addven','nombre'=>'Crea Ventas']);
-        Permission::create(['name'=>'delcom','nombre'=>'* Borra Compras/Edt Fecha']);
-        Permission::create(['name'=>'reacom','nombre'=>'* Reabre Compras']);
-        Permission::create(['name'=>'salefe','nombre'=>'* Saltar Límite Efectivo']);
-        Permission::create(['name'=>'liquidar','nombre'=>'Puede Liquidar']);
-        Permission::create(['name'=>'edtpro','nombre'=>'Edita Productos']);
-        Permission::create(['name'=>'factura','nombre'=>'Facturación']);
-        Permission::create(['name'=>'authtras','nombre'=>'Traspasos']);
-        Permission::create(['name'=>'harddel','nombre'=>'* Hard Delete']);
-        Permission::create(['name'=>'scan','nombre'=>'Scanea Docu']);
-        Permission::create(['name'=>'users','nombre'=>'Usuarios']);
-        Permission::create(['name'=>'edtfac','nombre'=>'*Edita Facturas']);
-        Permission::create(['name'=>'desloc','nombre'=>'*Deslocalizar']);
+
 
         $user = new User;
 
-        $user->name = "Ric";
-		$user->email = "info@sanaval.com";
-        $user->username = "ricardo.bm";
-        $user->huella = "RBM";
+        $user->name = "Ricardo";
+		$user->email = "rbartolome@sanaval.com";
+        $user->paciente_id = 806;
         $user->fecha_expira = date('Y-m-d');
 		$user->password = Hash::make('123');
         $user->save();
