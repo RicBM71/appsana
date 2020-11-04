@@ -104,6 +104,10 @@ import Vue2Filters from 'vue2-filters'
 Vue.use(Vue2Filters)
 /***************************** */
 
+Vue.use(require('vue-cookies'))
+
+
+
 
 // import currency from 'v-currency-field'
 // import 'v-currency-field/dist/index.css'

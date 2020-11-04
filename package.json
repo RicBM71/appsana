@@ -27,6 +27,7 @@
         "v-currency-field": "^3.0.7",
         "vee-validate": "^2.1.17",
         "vue-analytics": "^5.22.1",
+        "vue-cookies": "^1.7.4",
         "vue-toastr": "^2.1.2",
         "vue-web-cam": "^1.9.0",
         "vue2-dropzone": "^3.6.0",

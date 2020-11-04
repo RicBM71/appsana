@@ -26,6 +26,7 @@
                 //'apiDomain' => config('app.url').'/api'
             ]) !!}
         </script>
+        
     </head>
     <body>
         <div id="app">
